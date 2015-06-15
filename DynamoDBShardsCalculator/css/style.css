@@ -1,0 +1,25 @@
+form {
+    display: table;
+}
+p {
+    display: table-row;
+    height: 40px;
+}
+label {
+    display: table-cell;
+    padding-right:20px;
+}
+input {
+    display: table-cell;
+}
+div {
+    width: 1500px;
+}
+#size #rwcu #output {
+    height: 70px;
+    width: 300px;
+    margin:auto;
+    background-color:white;
+    margin-bottom: 5px;
+    font-size: 20px;
+}

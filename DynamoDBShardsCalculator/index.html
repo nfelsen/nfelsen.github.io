@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+<title>DynamoDB Shards Calculator</title>
+<link type="text/css" rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+<div>
+    <form>
+        <p>
+            <label>Storage Size (in GB)</label>
+            <input type="text" id="size">
+        </p>
+        <p>
+            <label>WCU</label>
+            <input type="text" id="wcu">
+        </p>
+        <p>
+            <label>RCU</label>
+            <input type="text" id="rcu">
+        </p>
+    </form>
+    <div id="storage"></div>
+    <div id="rwcu"></div>
+    <div id="output"></div>
+</div>
+</body>
+</html>
