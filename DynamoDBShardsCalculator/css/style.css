@@ -15,11 +15,18 @@ input {
 div {
     width: 1500px;
 }
-#size #rwcu #output {
+#size #rwcu #output #pricing{
     height: 70px;
     width: 300px;
     margin:auto;
     background-color:white;
     margin-bottom: 5px;
     font-size: 20px;
+}
+.container {
+    margin: 40px;
+}
+
+.tooltip-inner {
+    white-space:pre-wrap;
 }

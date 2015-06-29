@@ -1,30 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script type="text/javascript" src="js/script.js"></script>
-<title>DynamoDB Shards Calculator</title>
-<link type="text/css" rel="stylesheet" href="css/style.css"/>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <title>DynamoDB Shards Calculator</title>
+    <link type="text/css" rel="stylesheet" href="css/style.css"/>
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.css"/>
 </head>
 <body>
-<div>
-    <form>
-        <p>
-            <label>Storage Size (in GB)</label>
-            <input type="text" id="size">
-        </p>
-        <p>
-            <label>WCU</label>
-            <input type="text" id="wcu">
-        </p>
-        <p>
-            <label>RCU</label>
-            <input type="text" id="rcu">
-        </p>
-    </form>
-    <div id="storage"></div>
-    <div id="rwcu"></div>
-    <div id="output"></div>
-</div>
+    <div class='container'>
+        <h1>DynamoDB calculator</h1>
+        <div class="bs-example">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label for="inputEmail" class="control-label col-xs-2"><a id="popoverDataSize" class="btn" href="#" data-content="Resharding every 25G" rel="popover" data-placement="left" data-trigger="hover">Storage Size (GB)</a></label>
+                    <div class="col-xs-1">
+                        <input class="form-control" id="size" placeholder="25">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword" class="control-label col-xs-2"><a id="popoverDataRCU" class="btn" href="#" title="Read Capacity Unit" data-content="Resharding every 3000 RCU" rel="popover" data-placement="left" data-trigger="hover">RCU</a></label>
+                    <div class="col-xs-1">
+                        <input class="form-control" id="rcu" placeholder="100">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword" class="control-label col-xs-2"><a id="popoverDataWCU" class="btn" href="#" title="write Capacity Unit" data-content="Resharding every 1000 WCU" rel="popover" data-placement="left" data-trigger="hover">WCU</a></label>
+                    <div class="col-xs-1">
+                        <input class="form-control" id="wcu" placeholder="100">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div id="storage"></div>
+        <div id="rwcu"></div>
+        <div id="output"></div>
+        <div id="pricing"><div>
+    </div>
 </body>
 </html>
