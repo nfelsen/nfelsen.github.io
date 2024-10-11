@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decision-Making Process</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .decision-box {
+            margin: 20px;
+        }
+        .step {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Interactive Decision-Making Process</h1>
+
+    <div id="decision-box" class="decision-box">
+        <!-- Step 1: Is the Decision Time-Driven or Development-Driven? -->
+        <div class="step" id="step-1">
+            <p><strong>Step 1: Is the decision time-driven or development-driven?</strong></p>
+            <button onclick="nextStep('step-2-time')">Time-Driven</button>
+            <button onclick="nextStep('step-2-development')">Development-Driven</button>
+        </div>
+
+        <!-- Path for Time-Driven Decisions -->
+        <div class="step" id="step-2-time" style="display:none;">
+            <p><strong>Step 2: Assess the significance of the decision (High or Low).</strong></p>
+            <button onclick="nextStep('step-3-commitment-high')">High</button>
+            <button onclick="nextStep('step-3-commitment-low')">Low</button>
+        </div>
+
+        <!-- Path for Development-Driven Decisions -->
+        <div class="step" id="step-2-development" style="display:none;">
+            <p><strong>Step 2: Assess the significance of the decision (High or Low).</strong></p>
+            <button onclick="nextStep('step-3-commitment-high')">High</button>
+            <button onclick="nextStep('step-3-commitment-low')">Low</button>
+        </div>
+
+        <!-- Commitment Assessment High Path -->
+        <div class="step" id="step-3-commitment-high" style="display:none;">
+            <p><strong>Step 3: Assess the importance of commitment (High or Low).</strong></p>
+            <button onclick="nextStep('step-4-leader-high')">High</button>
+            <button onclick="nextStep('step-4-leader-low')">Low</button>
+        </div>
+
+        <!-- Commitment Assessment Low Path -->
+        <div class="step" id="step-3-commitment-low" style="display:none;">
+            <p><strong>Step 3: Assess the importance of commitment (High or Low).</strong></p>
+            <button onclick="nextStep('step-4-leader-high')">High</button>
+            <button onclick="nextStep('step-4-leader-low')">Low</button>
+        </div>
+
+        <!-- Leader Expertise Assessment (High) -->
+        <div class="step" id="step-4-leader-high" style="display:none;">
+            <p><strong>Step 4: Assess the leader's expertise (High or Low).</strong></p>
+            <button onclick="nextStep('step-5-likelihood-high')">High</button>
+            <button onclick="nextStep('step-5-likelihood-low')">Low</button>
+        </div>
+
+        <!-- Leader Expertise Assessment (Low) -->
+        <div class="step" id="step-4-leader-low" style="display:none;">
+            <p><strong>Step 4: Assess the leader's expertise (High or Low).</strong></p>
+            <button onclick="nextStep('step-5-likelihood-high')">High</button>
+            <button onclick="nextStep('step-5-likelihood-low')">Low</button>
+        </div>
+
+        <!-- Likelihood of Commitment Assessment (High) -->
+        <div class="step" id="step-5-likelihood-high" style="display:none;">
+            <p><strong>Step 5: Assess the likelihood of commitment (High or Low).</strong></p>
+            <button onclick="finalDecision('Delegate')">High - Delegate</button>
+            <button onclick="finalDecision('Consult Group')">Low - Consult Group</button>
+        </div>
+
+        <!-- Likelihood of Commitment Assessment (Low) -->
+        <div class="step" id="step-5-likelihood-low" style="display:none;">
+            <p><strong>Step 5: Assess the likelihood of commitment (High or Low).</strong></p>
+            <button onclick="finalDecision('Facilitate')">High - Facilitate</button>
+            <button onclick="finalDecision('Decide')">Low - Decide</button>
+        </div>
+
+        <!-- Final Decision Display -->
+        <div id="result" class="step" style="display:none;">
+            <p id="final-decision"></p>
+        </div>
+    </div>
+
+    <script>
+        function nextStep(step) {
+            // Hide all steps
+            document.querySelectorAll('.step').forEach(step => step.style.display = 'none');
+            
+            // Show the next step
+            document.getElementById(step).style.display = 'block';
+        }
+
+        function finalDecision(decision) {
+            // Hide all steps
+            document.querySelectorAll('.step').forEach(step => step.style.display = 'none');
+            
+            // Display the final decision
+            document.getElementById('final-decision').innerText = "Final Decision: " + decision;
+            document.getElementById('result').style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
