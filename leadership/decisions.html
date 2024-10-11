@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Decision-Making Process</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .decision-box {
+            margin: 20px;
+        }
+        .step {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Interactive Decision-Making Process</h1>
+
+    <div id="decision-box" class="decision-box">
+        <!-- Step 1: Choose Path - Significance or Expertise -->
+        <div class="step" id="step-1">
+            <p><strong>Step 1: What do you want to consider first?</strong></p>
+            <button onclick="nextStep('step-2-significance')">Consider Decision Significance</button>
+            <button onclick="nextStep('step-2-expertise')">Consider Expertise (Leader or Group)</button>
+        </div>
+
+        <!-- Path 1: Decision Significance -->
+        <div class="step" id="step-2-significance" style="display:none;">
+            <p><strong>Step 2: Do you want to prioritize time, assess commitment, or assess likelihood of commitment?</strong></p>
+            <button onclick="nextStep('step-prioritize-time')">Prioritize Time</button>
+            <button onclick="nextStep('step-assess-commitment')">Assess Commitment</button>
+            <button onclick="nextStep('step-likelihood-commitment')">Assess Likelihood of Commitment</button>
+        </div>
+
+        <!-- Path 2: Expertise Assessment -->
+        <div class="step" id="step-2-expertise" style="display:none;">
+            <p><strong>Step 2: Are you assessing leader’s expertise or group expertise?</strong></p>
+            <button onclick="nextStep('step-leader-expertise')">Assess Leader's Expertise</button>
+            <button onclick="nextStep('step-group-expertise')">Assess Group Expertise</button>
+        </div>
+
+        <!-- Step for Prioritizing Time -->
+        <div class="step" id="step-prioritize-time" style="display:none;">
+            <p><strong>Step: Prioritize Time</strong></p>
+            <button onclick="finalDecision('Involve Less in Decision Process')">Involve Less</button>
+            <button onclick="finalDecision('Involve More in Decision Process')">Involve More</button>
+        </div>
+
+        <!-- Step for Assessing Commitment -->
+        <div class="step" id="step-assess-commitment" style="display:none;">
+            <p><strong>Step: Assess Importance of Commitment</strong></p>
+            <button onclick="nextStep('step-high-commitment')">High Commitment</button>
+            <button onclick="finalDecision('Involve Less in Decision Process')">Low Commitment</button>
+        </div>
+
+        <!-- Step for Likelihood of Commitment -->
+        <div class="step" id="step-likelihood-commitment" style="display:none;">
+            <p><strong>Step: Assess Likelihood of Commitment</strong></p>
+            <button onclick="nextStep('step-goal-alignment')">Assess Goal Alignment</button>
+            <button onclick="nextStep('step-team-competence')">Assess Team Competence</button>
+        </div>
+
+        <!-- Leader Expertise Path -->
+        <div class="step" id="step-leader-expertise" style="display:none;">
+            <p><strong>Step: Does the leader have relevant expertise?</strong></p>
+            <button onclick="finalDecision('Delegate Decision')">No, Delegate</button>
+            <button onclick="finalDecision('Involve More in Decision Process')">Yes, Involve More</button>
+        </div>
+
+        <!-- Group Expertise Path -->
+        <div class="step" id="step-group-expertise" style="display:none;">
+            <p><strong>Step: Is the group competent to handle the decision?</strong></p>
+            <button onclick="finalDecision('Involve More in Decision Process')">Yes</button>
+            <button onclick="finalDecision('Delegate Decision')">No, Delegate</button>
+        </div>
+
+        <!-- Assess Goal Alignment -->
+        <div class="step" id="step-goal-alignment" style="display:none;">
+            <p><strong>Step: Assess Goal Alignment</strong></p>
+            <button onclick="finalDecision('Involve More in Decision Process')">Good Alignment</button>
+            <button onclick="finalDecision('Involve Less in Decision Process')">Poor Alignment</button>
+        </div>
+
+        <!-- Assess Team Competence -->
+        <div class="step" id="step-team-competence" style="display:none;">
+            <p><strong>Step: Assess Team Competence</strong></p>
+            <button onclick="finalDecision('Involve More in Decision Process')">Competent</button>
+            <button onclick="finalDecision('Involve Less in Decision Process')">Not Competent</button>
+        </div>
+
+        <!-- Final Decision Display -->
+        <div id="result" class="step" style="display:none;">
+            <p id="final-decision"></p>
+        </div>
+    </div>
+
+    <script>
+        function nextStep(step) {
+            // Hide all steps
+            document.querySelectorAll('.step').forEach(step => step.style.display = 'none');
+            
+            // Show the next step
+            document.getElementById(step).style.display = 'block';
+        }
+
+        function finalDecision(decision) {
+            // Hide all steps
+            document.querySelectorAll('.step').forEach(step => step.style.display = 'none');
+            
+            // Display the final decision
+            document.getElementById('final-decision').innerText = "Decision: " + decision;
+            document.getElementById('result').style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
